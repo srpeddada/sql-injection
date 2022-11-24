@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" type="text/css" href="{% static "css/empdetail.css" %}"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+
+{#<div class="wrapper">#}
+{#  <div class="label">Search for employee</div>#}
+{#    <form method="post" action="">#}
+{#          {% csrf_token %}#}
+{#  <div class="searchBar">#}
+{#    <input id="searchQueryInput" type="text" name="empID" placeholder="Search" value="" />#}
+{#    <button id="searchQuerySubmit" type="submit" name="searchQuerySubmit">#}
+{#      <svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="#666666" d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />#}
+{#      </svg>#}
+{#    </button>#}
+{#  </div>#}
+{#    </form>#}
+{#</div>#}
+<div class="cen">
+<h1 class="heading">All Employee details</h1>
+</div>
+
+<table>
+  <thead>
+    <tr>
+        {% for column in columns %}
+      <th>{{ column }}</th>
+        {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+  {% for d in data %}
+{#      <p>{{ data }}</p>#}
+    <tr>
+    {% for i in d %}
+        {% if forloop.counter0 == 2 %}
+        <td data-column="data"><a id = "send" style="cursor: pointer; text-underline: #3498db" href="/myapp/adminedit/{{ i }}" >{{ i }}</a></td>
+            {% else %}
+            <td data-column="data">{{ i }}</td>
+        {% endif %}
+
+        {% endfor %}
+    </tr>
+  {% endfor %}
+{#    <tr>#}
+{#      <td data-column="First Name">Andor</td>#}
+{#      <td data-column="Last Name">Nagy</td>#}
+{#      <td data-column="Job Title">Designer</td>#}
+{#      <td data-column="Twitter">@andornagy</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td data-column="First Name">Tamas</td>#}
+{#      <td data-column="Last Name">Biro</td>#}
+{#      <td data-column="Job Title">Game Tester</td>#}
+{#      <td data-column="Twitter">@tamas</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td data-column="First Name">Zoli</td>#}
+{#      <td data-column="Last Name">Mastah</td>#}
+{#      <td data-column="Job Title">Developer</td>#}
+{#      <td data-column="Twitter">@zoli</td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#      <td data-column="First Name">Szabi</td>#}
+{#      <td data-column="Last Name">Nagy</td>#}
+{#      <td data-column="Job Title">Chief Sandwich Eater</td>#}
+{#      <td data-column="Twitter">@szabi</td>#}
+{#    </tr>#}
+  </tbody>
+</table>
+
+{#<script>#}
+{#    function setGetParameter(i){#}
+{#    var search_word = document.getElementById("send").value;#}
+{#    $.ajax({#}
+{#      type: "POST",#}
+{#      url: "http://localhost:8000/myapp/adminedit/",#}
+{#      data: search_word,#}
+{#      success: function(result){#}
+{#        alert("Success");#}
+{#      }#}
+{#    });#}
+{#</script>#}
+
+
+</body>
+</html>

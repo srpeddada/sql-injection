@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+ <meta charset="UTF-8">
+ <title>Employee Login</title>
+
+     <link rel="stylesheet" type="text/css" href="{% static "css/login.css" %}"/>
+{#    <link href="{% static 'css/login.css' %}" rel="stylesheet">#}
+</head>
+<body>
+
+<div id="content">
+        <h2>Employee Login Portal</h2>
+     <form method="post" action="">
+          {% csrf_token %}
+            <div class="input-bar">
+{#                <label for="name">username</label>#}
+                <input type="text" id="name" class="input" name="username" >
+                <box-icon name='user'>🔒</box-icon>
+            </div>
+            <div class="input-bar">
+{#                <label for="password">password</label>#}
+                <input type="password" id="password" class="input" name="password" >
+                <box-icon name='lock-alt' >🔑</box-icon>
+            </div>
+          <button type="submit" id="btn">Login</button>
+        </form>
+
+
+    <br/><br/>
+    <p class="link"><a href="/myapp/adminlogin">Admin Login</a></p>
+    </div>
+
+</body>
+</html>

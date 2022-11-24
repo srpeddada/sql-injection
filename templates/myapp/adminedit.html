@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Employee Edit</title>
+
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="{% static "css/empdet.css" %}"/>
+    </head>
+
+    <body>
+    <div> {% if dictionary == '' %}
+
+        <script>
+        alert("Edited successfully")
+        </script>
+    {% endif %}</div>
+
+      <div class="row">
+    <div class="col-md-12">
+      <form action="" method="post">
+           {% csrf_token %}
+        <h1> Employee Edit </h1>
+
+        <fieldset>
+
+          <legend><span class="number">1</span>Basic Information</legend>
+
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="user_name" value="{{dictionary.name}}">
+
+          <label for="name">Emp ID:</label>
+          <input type="text" id="eid" name="eidq" value="{{dictionary.eid}}" >
+
+          <label for="name">Status:</label>
+          <input type="text" id="status" name="statusq" value="{{dictionary.status}}">
+
+            <label for="name">Department:</label>
+          <input type="text" id="depart" name="departq" value="{{dictionary.department}}">
+
+        </fieldset>
+        <fieldset>
+
+          <legend><span class="number">2</span> Sensitive Information</legend>
+
+         <label for="name">Sin:</label>
+          <input type="text" id="sin" name="sinq" value="{{dictionary.sin}}">
+
+             <label for="name">Salary:</label>
+          <input type="text" id="salary" name="salaryq" value="{{dictionary.salary}}">
+
+         </fieldset>
+
+        <button type="submit">Submit</button>
+
+       </form>
+        </div>
+      </div>
+
+    </body>
+</html>

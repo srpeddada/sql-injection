@@ -1,0 +1,17 @@
+{% block title %}
+   <strong> Ooops!! </strong>
+{% endblock %}
+
+{% block body_block %}
+     {% if cat_list %}
+ <h2>List of Categories</h2>
+ <ul>
+ {% for cat in cat_list %}
+ <li> {{ cat.name}} </li>
+ {% endfor %}
+ </ul>
+ {% else %}
+ <strong>We ran into a database issue</strong>
+ {% endif %}
+
+{% endblock %}
